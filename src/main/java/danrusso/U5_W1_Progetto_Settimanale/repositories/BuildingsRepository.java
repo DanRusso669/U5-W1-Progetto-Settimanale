@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BuildingsRepository extends JpaRepository<Building, Long> {
+
+    public Building findByName(String name);
+
+    public Building findByAddress(String address);
 }

@@ -24,16 +24,18 @@ public class UsersService {
         return usersRepository.findAll();
     }
 
-    public void saveUser(User newUser) {
+    public void saveUser(String username, String fullname, String email) {
 
-        if (usersRepository.findByUsername(newUser.getUsername()) != null)
-            throw new ValidationException("Username " + newUser.getUsername() + " is already in use.");
+        if (usersRepository.findByUsername(username) != null)
+            throw new ValidationException("Username " + username + " is already in use.");
 
-        if (usersRepository.existsByEmail(newUser.getEmail()))
-            throw new ValidationException("Email " + newUser.getEmail() + " already in use.");
+        if (usersRepository.existsByEmail(email))
+            throw new ValidationException("Email " + email + " already in use.");
+
+        User newUser = new User(username, fullname, email);
 
         usersRepository.save(newUser);
 
-        System.out.println("User " + newUser.getUsername() + " addedd successfully.");
+        System.out.println("User " + username + " addedd successfully.");
     }
 }
