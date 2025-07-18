@@ -1,11 +1,15 @@
 package danrusso.U5_W1_Progetto_Settimanale.services;
 
 import danrusso.U5_W1_Progetto_Settimanale.entities.Reservation;
+import danrusso.U5_W1_Progetto_Settimanale.entities.User;
+import danrusso.U5_W1_Progetto_Settimanale.entities.Workstation;
 import danrusso.U5_W1_Progetto_Settimanale.exceptions.NotFoundException;
+import danrusso.U5_W1_Progetto_Settimanale.exceptions.ValidationException;
 import danrusso.U5_W1_Progetto_Settimanale.repositories.ReservationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -28,14 +32,24 @@ public class ReservationsService {
         return reservationsRepository.findAll();
     }
 
-//    public void saveReservation(LocalDate date, String username, long workstationId) {
-//
-//        User userFound = usersService.findByUsername(username);
-//        Workstation workstationFound = workstationsService.findById(workstationId);
-//
-//        //reservationsRepository.findByWorkstationAndDate()
-//        Reservation newReservation = new Reservation(date, userFound, workstationFound);
-//
-//        System.out.println("Reservation with id " + newReservation.getId() + " added successfully.");
-//    }
+    public Reservation findByWorkstationAndDate(Workstation workstation, LocalDate date) {
+        return reservationsRepository.findByWorkstationAndDate(workstation, date);
+    }
+
+    public void saveReservation(LocalDate date, long userId, long workstationId) {
+
+        User userFound = usersService.findById(userId);
+        Workstation workstationFound = workstationsService.findById(workstationId);
+
+        Reservation reservationFound = this.findByWorkstationAndDate(workstationFound, date);
+        if (reservationFound != null)
+            throw new ValidationException("You can't book workstation with id " + workstationId + " on the selected date.");
+
+        Reservation newReservation = new Reservation(date, userFound, workstationFound);
+        reservationsRepository.save(newReservation);
+
+        System.out.println("Reservation with id " + newReservation.getId() + " added successfully.");
+    }
+
+
 }

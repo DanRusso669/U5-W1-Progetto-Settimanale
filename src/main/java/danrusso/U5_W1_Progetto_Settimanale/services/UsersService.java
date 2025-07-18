@@ -20,6 +20,10 @@ public class UsersService {
         return found;
     }
 
+    public User findById(long id) {
+        return usersRepository.findById(id).orElseThrow(() -> new NotFoundException("User with id " + id + " not found."));
+    }
+
     public List<User> findAll() {
         return usersRepository.findAll();
     }

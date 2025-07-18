@@ -56,4 +56,14 @@ public class Reservation {
     public void setWorkstation(Workstation workstation) {
         this.workstation = workstation;
     }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", date=" + date +
+                ", user=" + user +
+                ", workstation=" + workstation +
+                '}';
+    }
 }

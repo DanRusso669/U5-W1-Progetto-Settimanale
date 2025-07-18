@@ -1,12 +1,15 @@
 package danrusso.U5_W1_Progetto_Settimanale.repositories;
 
 import danrusso.U5_W1_Progetto_Settimanale.entities.Reservation;
+import danrusso.U5_W1_Progetto_Settimanale.entities.Workstation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.time.LocalDate;
 
 @Repository
 public interface ReservationsRepository extends JpaRepository<Reservation, Long> {
 
-    // public Reservation findByWorkstationAndDate(long id, LocalDate date);
+    Reservation findByWorkstationAndDate(Workstation workstation, LocalDate date);
 
 }

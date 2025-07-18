@@ -64,4 +64,15 @@ public class Workstation {
     public void setBuilding(Building building) {
         this.building = building;
     }
+
+    @Override
+    public String toString() {
+        return "Workstation{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", maxGuests=" + maxGuests +
+                ", building=" + building +
+                '}';
+    }
 }
