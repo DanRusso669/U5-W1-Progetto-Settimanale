@@ -8,11 +8,8 @@ public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "names")
     private String name;
-    @Column(name = "addresses")
     private String address;
-    @Column(name = "cities")
     private String city;
 
     public Building() {

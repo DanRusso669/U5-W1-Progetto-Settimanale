@@ -10,23 +10,22 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "dates")
     private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "usernames")
-    private User userName;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
-    @JoinColumn(name = "workstations")
+    @JoinColumn(name = "workstation_id")
     private Workstation workstation;
 
     public Reservation() {
     }
 
-    public Reservation(LocalDate date, User userName, Workstation workstation) {
+    public Reservation(LocalDate date, User user, Workstation workstation) {
         this.date = date;
-        this.userName = userName;
+        this.user = user;
         this.workstation = workstation;
     }
 
@@ -42,12 +41,12 @@ public class Reservation {
         this.date = date;
     }
 
-    public User getUserName() {
-        return userName;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserName(User userName) {
-        this.userName = userName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Workstation getWorkstation() {

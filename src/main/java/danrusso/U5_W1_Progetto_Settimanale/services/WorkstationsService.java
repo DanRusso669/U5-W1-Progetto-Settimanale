@@ -40,7 +40,6 @@ public class WorkstationsService {
         } catch (NotFoundException e) {
             System.out.println(e.getMessage());
         }
-
-
     }
+
 }

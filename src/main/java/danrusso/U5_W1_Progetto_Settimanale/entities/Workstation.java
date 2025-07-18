@@ -9,16 +9,14 @@ public class Workstation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "desciptions")
     private String description;
-    @Column(name = "workstations_type")
+    @Column(name = "workstation_type")
     @Enumerated(EnumType.STRING)
     private WorkstationType type;
     @Column(name = "maximum_guests")
     private int maxGuests;
 
     @ManyToOne
-    @JoinColumn(name = "buildings")
     private Building building;
 
     public Workstation() {

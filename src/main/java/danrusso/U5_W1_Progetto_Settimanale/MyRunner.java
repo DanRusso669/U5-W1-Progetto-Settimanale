@@ -1,8 +1,10 @@
 package danrusso.U5_W1_Progetto_Settimanale;
 
+import danrusso.U5_W1_Progetto_Settimanale.enums.WorkstationType;
 import danrusso.U5_W1_Progetto_Settimanale.exceptions.InvalidLenghtException;
 import danrusso.U5_W1_Progetto_Settimanale.exceptions.ValidationException;
 import danrusso.U5_W1_Progetto_Settimanale.services.BuildingsService;
+import danrusso.U5_W1_Progetto_Settimanale.services.ReservationsService;
 import danrusso.U5_W1_Progetto_Settimanale.services.UsersService;
 import danrusso.U5_W1_Progetto_Settimanale.services.WorkstationsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class MyRunner implements CommandLineRunner {
 
     @Autowired
     private WorkstationsService workstationsService;
+
+    @Autowired
+    private ReservationsService reservationsService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -43,21 +48,24 @@ public class MyRunner implements CommandLineRunner {
         }
 
         try {
-//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
-//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
-//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 2);
-//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 3);
-//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 1);
-//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
-//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
-//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
-//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
-//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 4);
-//            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 3);
-//            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
-//            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
+            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
+            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
+            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 2);
+            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 3);
+            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 1);
+            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
+            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
+            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
+            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
+            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 4);
+            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 3);
+            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
+            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
         } catch (InvalidLenghtException e) {
             System.out.println(e.getMessage());
         }
+
+        // reservationsService.saveReservation(LocalDate.now().minusDays(14), "Batman", 1);
+
     }
 }

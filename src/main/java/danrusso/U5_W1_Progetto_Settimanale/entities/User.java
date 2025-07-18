@@ -1,19 +1,18 @@
 package danrusso.U5_W1_Progetto_Settimanale.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    @Column(name = "usernames", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(nullable = false)
     private String username;
-    @Column(name = "fullnames", nullable = false)
+    @Column(nullable = false)
     private String fullname;
-    @Column(name = "emails", nullable = false)
+    @Column(nullable = false)
     private String email;
 
     public User() {
