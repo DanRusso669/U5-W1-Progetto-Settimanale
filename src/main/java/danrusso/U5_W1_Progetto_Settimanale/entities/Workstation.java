@@ -12,6 +12,7 @@ public class Workstation {
     @Column(name = "desciptions")
     private String description;
     @Column(name = "workstations_type")
+    @Enumerated(EnumType.STRING)
     private WorkstationType type;
     @Column(name = "maximum_guests")
     private int maxGuests;
