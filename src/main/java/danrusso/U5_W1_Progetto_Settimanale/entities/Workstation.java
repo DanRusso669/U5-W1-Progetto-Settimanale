@@ -15,8 +15,9 @@ public class Workstation {
     private WorkstationType type;
     @Column(name = "maximum_guests")
     private int maxGuests;
-    @Column(name = "buildings")
+
     @ManyToOne
+    @JoinColumn(name = "buildings")
     private Building building;
 
     public Workstation() {

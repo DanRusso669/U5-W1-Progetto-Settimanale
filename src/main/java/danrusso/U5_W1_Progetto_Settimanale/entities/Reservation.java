@@ -1,11 +1,24 @@
 package danrusso.U5_W1_Progetto_Settimanale.entities;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "reservations")
 public class Reservation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "dates")
     private LocalDate date;
+
+    @ManyToOne
+    @JoinColumn(name = "usernames")
     private User userName;
+
+    @ManyToOne
+    @JoinColumn(name = "workstations")
     private Workstation workstation;
 
     public Reservation() {
