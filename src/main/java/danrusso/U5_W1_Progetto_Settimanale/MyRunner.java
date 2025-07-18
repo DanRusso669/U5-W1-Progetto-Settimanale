@@ -1,8 +1,8 @@
 package danrusso.U5_W1_Progetto_Settimanale;
 
-import danrusso.U5_W1_Progetto_Settimanale.entities.Reservation;
-import danrusso.U5_W1_Progetto_Settimanale.entities.Workstation;
+import danrusso.U5_W1_Progetto_Settimanale.enums.WorkstationType;
 import danrusso.U5_W1_Progetto_Settimanale.exceptions.InvalidLenghtException;
+import danrusso.U5_W1_Progetto_Settimanale.exceptions.NotFoundException;
 import danrusso.U5_W1_Progetto_Settimanale.exceptions.ValidationException;
 import danrusso.U5_W1_Progetto_Settimanale.services.BuildingsService;
 import danrusso.U5_W1_Progetto_Settimanale.services.ReservationsService;
@@ -68,13 +68,21 @@ public class MyRunner implements CommandLineRunner {
             System.out.println(e.getMessage());
         }
 
-        Workstation found1 = workstationsService.findById(1);
-        Reservation found2 = reservationsService.findByWorkstationAndDate(found1, LocalDate.now().minusDays(14));
-        System.out.println(found2);
+        // Questo save controlla se la postazione indicata nella prenotazione è già occupata per la data inserita.
+        // Inoltre controlla che l'utente inserito non abbia già una postazione prenotata per quella data.
 
         try {
-            reservationsService.saveReservation(LocalDate.now().minusDays(14), 2, 1);
+            reservationsService.saveReservation(LocalDate.of(2025, 7, 11), 1, 12);
+
         } catch (ValidationException e) {
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("************* METODO PER RICERCA TRAMITE TIPO DI POSTAZIONE E CITTÀ **************");
+
+        try {
+            workstationsService.filterByTypeAndCity(WorkstationType.OPENSPACE, "Portland").forEach(System.out::println);
+        } catch (NotFoundException e) {
             System.out.println(e.getMessage());
         }
 

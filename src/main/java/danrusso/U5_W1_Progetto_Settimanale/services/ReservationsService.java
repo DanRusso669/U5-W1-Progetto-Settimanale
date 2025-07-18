@@ -36,14 +36,21 @@ public class ReservationsService {
         return reservationsRepository.findByWorkstationAndDate(workstation, date);
     }
 
+    // Questo save controlla se la postazione indicata nella prenotazione è già occupata per la data inserita.
+    // Inoltre controlla che l'utente inserito non abbia giù una postazione prenotata per quella data.
+
     public void saveReservation(LocalDate date, long userId, long workstationId) {
 
         User userFound = usersService.findById(userId);
         Workstation workstationFound = workstationsService.findById(workstationId);
 
         Reservation reservationFound = this.findByWorkstationAndDate(workstationFound, date);
+        Reservation reservationOfUserFound = reservationsRepository.findByUserAndDate(userFound, date);
         if (reservationFound != null)
             throw new ValidationException("You can't book workstation with id " + workstationId + " on the selected date.");
+
+        if (reservationOfUserFound != null)
+            throw new ValidationException("You already have workstation with id " + reservationOfUserFound.getWorkstation().getId() + " booked for this date.");
 
         Reservation newReservation = new Reservation(date, userFound, workstationFound);
         reservationsRepository.save(newReservation);

@@ -42,4 +42,11 @@ public class WorkstationsService {
         }
     }
 
+    public List<Workstation> filterByTypeAndCity(WorkstationType type, String city) {
+        List<Workstation> found = workstationsRepository.filterByTypeAndCity(type, city);
+        if (found.isEmpty()) throw new NotFoundException("No locations found with these search criteria.");
+
+        return found;
+    }
+
 }
