@@ -45,10 +45,10 @@ public class ReservationsService {
         Workstation workstationFound = workstationsService.findById(workstationId);
 
         Reservation reservationFound = this.findByWorkstationAndDate(workstationFound, date);
-        Reservation reservationOfUserFound = reservationsRepository.findByUserAndDate(userFound, date);
         if (reservationFound != null)
             throw new ValidationException("You can't book workstation with id " + workstationId + " on the selected date.");
 
+        Reservation reservationOfUserFound = reservationsRepository.findByUserAndDate(userFound, date);
         if (reservationOfUserFound != null)
             throw new ValidationException("You already have workstation with id " + reservationOfUserFound.getWorkstation().getId() + " booked for this date.");
 

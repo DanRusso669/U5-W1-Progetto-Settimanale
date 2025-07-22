@@ -35,7 +35,7 @@ public class MyRunner implements CommandLineRunner {
         try {
             usersService.saveUser("Marione", "Mario Rossi", "m_rossi@gmail.com");
             usersService.saveUser("Batman", "Bruce Wayne", "darkknight@gotham.com");
-            usersService.saveUser("Trinità", "Bud Spencer", "trinity@gmail.com");
+            usersService.saveUser("Trinità", "Terence Hill", "trinity@gmail.com");
             usersService.saveUser("Yotobi", "Karim Musa", "yotobi@gmail.com");
         } catch (ValidationException e) {
             System.out.println(e.getMessage());
@@ -51,19 +51,19 @@ public class MyRunner implements CommandLineRunner {
         }
 
         try {
-            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
-            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
-            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 2);
-            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 3);
-            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 1);
-            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
-            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
-            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
-            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
-            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 4);
-            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 3);
-            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
-            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
+//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
+//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 1);
+//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 2);
+//            workstationsService.saveWorkstation("Bright private area for working, alone or in a team, away from noise and distractions.", WorkstationType.PRIVATE, 4, 3);
+//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 1);
+//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
+//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 2);
+//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
+//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 3);
+//            workstationsService.saveWorkstation("Bright open space in which to study, relax or work without feeling stuffy.", WorkstationType.OPENSPACE, 50, 4);
+//            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 3);
+//            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
+//            workstationsService.saveWorkstation("Spacious room in which to hold meetings with all the teams in your workforce.", WorkstationType.MEETING_ROOM, 20, 4);
         } catch (InvalidLenghtException e) {
             System.out.println(e.getMessage());
         }
